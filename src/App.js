@@ -19,7 +19,6 @@ function App() {
     })
   }
 
-  console.log(cards)
   return (
     <div className="App">
       <header className="App-header">
