@@ -50,7 +50,6 @@ function App() {
     for (let i = 0; i < dealerCards.length; i++) {
       total += parseInt(getRealValue(dealerCards[i].value))
     }
-    console.log(total)
     return total
   }
 
@@ -77,10 +76,7 @@ function App() {
         <div id="dealerHand"></div>
         <button onClick={() => getDeck()}>Start</button>
         <button onClick={() => drawPlayerCard()}>Draw card</button>
-        <button onClick={() => drawPlayerCard()}>Draw another</button>
-        <button onClick={() => {
-          setDealerTurn(true)
-        }}>Stop</button>
+        <button onClick={() => setDealerTurn(true)}>Stop</button>
         <div id="playerHand"></div>
       </header>
     </div>
