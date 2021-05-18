@@ -75,8 +75,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div id="dealerHand"></div>
-        <button onClick={() => getDeck()}>Click me to start</button>
-        <button onClick={() => drawPlayerCard()}>Click me to draw card</button>
+        <button onClick={() => getDeck()}>Start</button>
+        <button onClick={() => drawPlayerCard()}>Draw card</button>
         <button onClick={() => drawPlayerCard()}>Draw another</button>
         <button onClick={() => {
           setDealerTurn(true)
