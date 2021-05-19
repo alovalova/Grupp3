@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+
 
 function App() {
   const [deck, setDeck] = useState()
@@ -20,11 +21,12 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="container">
       <header className="App-header">
-        <button onClick={() => getDeck()}>Click me to start</button>
-        <button onClick={() => drawCard()}>Click me to draw card</button>
+        <button className="btn btn-primary" onClick={() => getDeck()}>Click me to start</button>
+        <button className="btn btn-primary" onClick={() => drawCard()}>Click me to draw card</button>
         <img src="#" id="currCard"></img>
+        <p id="tokens">Tokens: 10$</p>
       </header>
     </div>
   );
