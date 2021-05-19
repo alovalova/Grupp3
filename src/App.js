@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Token } from './components/Token'
 
 
 function App() {
@@ -124,6 +125,7 @@ function App() {
         <button onClick={() => drawPlayerCard()}>Draw card</button>
         <button onClick={() => setDealerTurn(true)}>Stop</button>
         <div id="playerHand"></div>
+        <Token />
       </header>
     </div>
   );
