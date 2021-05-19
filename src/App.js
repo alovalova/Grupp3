@@ -108,10 +108,10 @@ function App() {
 
   const getRealValue = (value) => {
     switch (value) {
-      case 'JACK': return 11
-      case 'QUEEN': return 12
-      case 'KING': return 13
-      case 'ACE': return 1
+      case 'JACK': return 10
+      case 'QUEEN': return 10
+      case 'KING': return 10
+      case 'ACE': return 11
       default: return value
     }
   }
