@@ -30,13 +30,15 @@ h3 {
   flex-direction: row;
   justify-content: space-around;
   height: fit-content;
-  background-color: rgba(56, 28, 9, 0.808);
+  /*background-color: rgba(56, 28, 9, 0.808);*/
+  background-image: url("banner.jpg");
+  box-shadow: 1px 4px 20px 10px black;
   border-radius: 10px;
 }
 
 #startBtn, #stopBtn, #drawBtn{
   font-size: 60px;
-  background: -webkit-linear-gradient(rgb(228, 154, 16), rgb(131, 8, 8));
+  background: -webkit-linear-gradient(rgb(255, 166, 0), rgb(161, 0, 0));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
