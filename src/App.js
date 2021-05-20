@@ -71,7 +71,7 @@ function App() {
       let img = document.createElement("img");
       img.src = playerCards[playerCards.length - 1].image
       document.querySelector('#playerHand').appendChild(img);
-      if (document.querySelector('#playerHand').childElementCount == 1) {
+      if (document.querySelector('#playerHand').childElementCount === 1) {
         await sleep(500)
         drawPlayerCard()
       }
@@ -103,7 +103,7 @@ function App() {
         }
       }
     }
-    if (dealerCards.length > 0 && playerCards.length != 0) {
+    if (dealerCards.length > 0 && playerCards.length !== 0) {
       showCards()
     }
   }, [dealerCards])
