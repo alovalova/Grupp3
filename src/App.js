@@ -50,6 +50,7 @@ function App() {
     else if (dealerTotal < 21 && dealerTotal > playerTotal) winner = 'Dealer'
     else winner = 'Draw'
 
+    console.log(dealerTotal, playerTotal);
     return winner
   }
 
@@ -123,8 +124,10 @@ function App() {
       <header className="App-header">
         <h3>Dealer Hand</h3>
         <div id="dealerHand"></div>
+        
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
+        
 
         <div className="buttonGroup">
           <button className="btn btn-info" onClick={() => getDeck()}>Start</button>

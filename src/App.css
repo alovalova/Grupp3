@@ -6,8 +6,11 @@ body {
   display: flex;
   flex-direction: row;
   height: 100em;
-  width: 100em;
-  background-color: rgb(26, 88, 26);
+  width: 150em;
+  /*background-color: rgb(26, 88, 26);*/
+  background-image: url("table.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
   box-shadow: 0px 0px 42px -7px rgba(0,0,0,0.75);
 }
 
