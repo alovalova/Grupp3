@@ -128,13 +128,13 @@ function App() {
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
         
-
         <div className="buttonGroup">
-          <button className="btn btn-info" onClick={() => getDeck()}>Start</button>
-          <button className="btn btn-info" onClick={() => drawPlayerCard()}>Draw card</button>
-          <button className="btn btn-info" onClick={() => setDealerTurn(true)}>Stop</button>
-          <Token />
+          <button className="btn btn-info btn-lg" id="startBtn" onClick={() => getDeck()}>Start</button>
+          <button className="btn btn-info btn-lg" id="drawBtn" onClick={() => drawPlayerCard()}>Draw card</button>
+          <button className="btn btn-info btn-lg" id="stopBtn" onClick={() => setDealerTurn(true)}>Stop</button>
         </div>
+        <Token />
+        
       </header>
     </div>
   );

@@ -15,24 +15,28 @@ body {
 }
 
 h3 {
+  padding: 0.3em;
+  background-color: rgba(0, 0, 0, 0.767);
   color: white;
   text-shadow: 3px 3px #000000;
+  border-radius: 15px;
 }
 
 .buttonGroup {
   padding: 0.5em;
   display: flex;
-  flex-direction: column;
-  width: 15em;
-  height: 13em;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 7em;
   background-color: rgba(0, 0, 0, 0.774);
   border-radius: 10px;
   box-shadow: 3px 5px 10px 0px black;
 }
 
 button {
-  max-height: 3em;
-  margin-top: 1.3em;
+  margin-top: 0.4em;
+  height: 4em;
+  width: 9em;
 }
 
 .App-header {
