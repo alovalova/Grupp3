@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: row;
   height: fit-content;
-  width: 80%;
+  width: fit-content;
 }
 
 h3 {
