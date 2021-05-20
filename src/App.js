@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -120,12 +121,14 @@ function App() {
   return (
     <div className="container">
       <header className="App-header">
-        <div id="dealerHand"></div>
-        <button onClick={() => getDeck()}>Start</button>
-        <button onClick={() => drawPlayerCard()}>Draw card</button>
-        <button onClick={() => setDealerTurn(true)}>Stop</button>
-        <div id="playerHand"></div>
-        <Token />
+        <div id="dealerHand"><h3>Dealer Hand</h3></div>
+        <div id="playerHand"><h3>Player Hand</h3></div>
+        <div className="buttonGroup">
+          <button className="btn btn-info" onClick={() => getDeck()}>Start</button>
+          <button className="btn btn-info" onClick={() => drawPlayerCard()}>Draw card</button>
+          <button className="btn btn-info" onClick={() => setDealerTurn(true)}>Stop</button>
+          <Token />
+        </div>
       </header>
     </div>
   );
