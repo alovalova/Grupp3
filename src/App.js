@@ -121,8 +121,11 @@ function App() {
   return (
     <div className="container">
       <header className="App-header">
-        <div id="dealerHand"><h3>Dealer Hand</h3></div>
-        <div id="playerHand"><h3>Player Hand</h3></div>
+        <h3>Dealer Hand</h3>
+        <div id="dealerHand"></div>
+        <h3>Player Hand</h3>
+        <div id="playerHand"></div>
+
         <div className="buttonGroup">
           <button className="btn btn-info" onClick={() => getDeck()}>Start</button>
           <button className="btn btn-info" onClick={() => drawPlayerCard()}>Draw card</button>
