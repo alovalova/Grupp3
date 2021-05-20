@@ -129,9 +129,9 @@ function App() {
         <div id="playerHand"></div>
         
         <div className="buttonGroup">
-          <button className="btn btn-info btn-lg" id="startBtn" onClick={() => getDeck()}>Start</button>
-          <button className="btn btn-info btn-lg" id="drawBtn" onClick={() => drawPlayerCard()}>Draw card</button>
-          <button className="btn btn-info btn-lg" id="stopBtn" onClick={() => setDealerTurn(true)}>Stop</button>
+          <button className="btn btn-lg" id="startBtn" onClick={() => getDeck()}>Start</button>
+          <button className="btn btn-lg" id="drawBtn" onClick={() => drawPlayerCard()}>Draw card</button>
+          <button className="btn btn-lg" id="stopBtn" onClick={() => setDealerTurn(true)}>Stop</button>
         </div>
         <Token />
         
