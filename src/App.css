@@ -2,20 +2,25 @@ body {
   background-image: url("table.jpg");
   background-repeat:no-repeat;
   background-size: cover;
+  font-family: 'Pirata One', cursive;
 }
 
 .container {
   display: flex;
   flex-direction: row;
-  height: 100em;
-  width: 150em;
+  height: fit-content;
+  width: 80%;
 }
 
 h3 {
   padding: 0.3em;
-  background-color: rgba(0, 0, 0, 0.767);
-  color: white;
-  text-shadow: 3px 3px #000000;
+  color: transparent;
+  background-color: #000000d2;
+  background-clip: text;
+  text-shadow: 0px 5px 2px #7943246e;
+  font-size: 85px;
+  /*text-shadow: 1px 1px rgba(39, 22, 3, 0.959), -1px -1px rgba(12, 12, 12, 0.795);*/
+  /*text-shadow: inset 0 0 10px black;*/
   border-radius: 15px;
 }
 
@@ -24,16 +29,23 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 7em;
-  background-color: rgba(0, 0, 0, 0.774);
+  height: fit-content;
+  background-color: rgba(56, 28, 9, 0.808);
   border-radius: 10px;
-  box-shadow: 3px 5px 10px 0px black;
+}
+
+#startBtn, #stopBtn, #drawBtn{
+  font-size: 60px;
+  background: -webkit-linear-gradient(rgb(228, 154, 16), rgb(131, 8, 8));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
 }
 
 button {
-  margin-top: 0.4em;
-  height: 4em;
-  width: 9em;
+  height: fit-content;
 }
 
 .App-header {
@@ -47,16 +59,21 @@ button {
   width: max-content;
 }
 
+img {
+  border-radius: 12px;
+  box-shadow: 3px 5px 10px 0px black;
+  margin-left: 15px;
+}
+
 #playerHand {
   width: auto;
   height: 30em;
 }
 
-#currCard {
+/*#currCard {
   margin: 5em 0em 5em 0em;
   padding: 0.3em;
   min-width: 226px;
   min-height: 314px;
-  border: solid rgb(194, 181, 0);
-  border-radius: 10px;
-}
+  
+}*/
