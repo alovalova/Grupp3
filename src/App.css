@@ -1,5 +1,5 @@
 body {
-  background-image: url("table.jpg");
+  background-image: url("./img/table.jpg");
   background-repeat:no-repeat;
   background-size: cover;
   font-family: 'Pirata One', cursive;
@@ -18,7 +18,7 @@ h3 {
   background-color: #000000d2;
   background-clip: text;
   text-shadow: 0px 5px 2px #7943246e;
-  font-size: 85px;
+  font-size: 50px;
   /*text-shadow: 1px 1px rgba(39, 22, 3, 0.959), -1px -1px rgba(12, 12, 12, 0.795);*/
   /*text-shadow: inset 0 0 10px black;*/
   border-radius: 15px;
@@ -31,7 +31,7 @@ h3 {
   justify-content: space-around;
   height: fit-content;
   /*background-color: rgba(56, 28, 9, 0.808);*/
-  background-image: url("banner.jpg");
+  background-image: url("./img/banner.jpg");
   box-shadow: 1px 4px 20px 10px black;
   border-radius: 10px;
 }
@@ -50,14 +50,14 @@ button {
   height: fit-content;
 }
 
-.App-header {
+.hands {
   display: flex;
   flex-direction: column;
   width: inherit;
 }
 
 #dealerHand {
-  height: 20em;
+  height: 10em;
   width: max-content;
 }
 
@@ -69,9 +69,13 @@ img {
 
 #playerHand {
   width: auto;
-  height: 30em;
+  height: 15em;
 }
 
+.card-API-img {
+  width: auto;
+  height: 10em;
+}
 /*#currCard {
   margin: 5em 0em 5em 0em;
   padding: 0.3em;

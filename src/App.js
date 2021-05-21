@@ -3,6 +3,8 @@ import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Token } from './components/Token'
+import { sleep, showWinner, getTotal } from './modules/card'
+import { ButtonGroup } from './components/ButtonGroup.js'
 
 
 function App() {
@@ -10,15 +12,6 @@ function App() {
   const [playerCards, setPlayerCards] = useState([])
   const [dealerCards, setDealerCards] = useState([])
   const [dealerTurn, setDealerTurn] = useState(false)
-  const getDeck = async () => {
-    await axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1').then((res) =>
-      setDeck(res.data)
-    )
-  }
-
-  const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
 
   const drawPlayerCard = async () => {
     await drawCard().then(async (res) => {
@@ -36,34 +29,9 @@ function App() {
     })
   }
 
-  const getWinner = () => {
-    let dealerTotal = 0
-    let playerTotal = 0
-    let winner
-    for (let i = 0; i < dealerCards.length; i++) {
-      dealerTotal += +getRealValue(dealerCards[i].value)
-    }
-    for (let i = 0; i < playerCards.length; i++) {
-      playerTotal += +getRealValue(playerCards[i].value)
-    }
-    if (playerTotal < 21 && playerTotal > dealerTotal) winner = 'Player'
-    else if (dealerTotal < 21 && dealerTotal > playerTotal) winner = 'Dealer'
-    else winner = 'Draw'
-
-    console.log(dealerTotal, playerTotal);
-    return winner
-  }
-
-  const getTotal = (total) => {
-    for (let i = 0; i < dealerCards.length; i++) {
-      total += parseInt(getRealValue(dealerCards[i].value))
-    }
-    return total
-  }
-
   useEffect(() => {
     if (playerCards.length === 2 || dealerTurn) {
-      drawDealerCard()
+      drawDealerCard(setDealerCards)
     }
   }, [playerCards, dealerTurn])
 
@@ -71,6 +39,7 @@ function App() {
     const showCards = async () => {
       let img = document.createElement("img");
       img.src = playerCards[playerCards.length - 1].image
+      img.className = 'card-API-img'
       document.querySelector('#playerHand').appendChild(img);
       if (document.querySelector('#playerHand').childElementCount === 1) {
         await sleep(500)
@@ -87,20 +56,15 @@ function App() {
     const showCards = async () => {
       let img = document.createElement("img");
       img.src = dealerCards[dealerCards.length - 1].image
+      img.className = 'card-API-img'
       document.querySelector('#dealerHand').appendChild(img);
       await sleep(1000)
       if (dealerTurn) {
         let total = 0
-        if (getTotal(total) <= 16) drawDealerCard()
+        if (getTotal(total, dealerCards) <= 16) drawDealerCard()
         else {
           setDealerTurn(false)
-          let winner = getWinner()
-          console.log(winner)
-          alert('The winner is: ' + winner)
-          document.querySelector('#dealerHand').innerHTML = '';
-          document.querySelector('#playerHand').innerHTML = '';
-          setPlayerCards([])
-          setDealerCards([])
+          showWinner(setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck)
         }
       }
     }
@@ -109,33 +73,16 @@ function App() {
     }
   }, [dealerCards])
 
-  const getRealValue = (value) => {
-    switch (value) {
-      case 'JACK': return 10
-      case 'QUEEN': return 10
-      case 'KING': return 10
-      case 'ACE': return 11
-      default: return value
-    }
-  }
-
   return (
     <div className="container">
-      <header className="App-header">
+      <div className="hands">
         <h3>Dealer Hand</h3>
         <div id="dealerHand"></div>
-        
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
-        
-        <div className="buttonGroup">
-          <button className="btn btn-lg" id="startBtn" onClick={() => getDeck()}>Start</button>
-          <button className="btn btn-lg" id="drawBtn" onClick={() => drawPlayerCard()}>Draw card</button>
-          <button className="btn btn-lg" id="stopBtn" onClick={() => setDealerTurn(true)}>Stop</button>
-        </div>
+        <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
         <Token />
-        
-      </header>
+      </div>
     </div>
   );
 }
