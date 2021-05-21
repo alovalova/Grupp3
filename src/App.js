@@ -6,6 +6,7 @@ import { Token } from './components/Token'
 import { sleep, getWinner, getTotal } from './modules/card'
 import { ButtonGroup } from './components/ButtonGroup.js'
 import { WinnerModal } from './components/WinnerModal';
+import card from './img/card.png';
 
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
 
   return (
     <div className="container">
+      <img src={card} id='backside' />
       <div className="hands">
         <h3>Dealer Hand</h3>
         <div id="dealerHand"></div>
