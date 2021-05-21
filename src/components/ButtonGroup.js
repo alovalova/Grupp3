@@ -1,8 +1,6 @@
 import axios from 'axios'
 
 export const ButtonGroup = ({ deck, setDeck, drawPlayerCard, setDealerTurn }) => {
-
-    console.log(deck)
     const getDeck = async () => {
         await axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1').then((res) =>
             setDeck(res.data)

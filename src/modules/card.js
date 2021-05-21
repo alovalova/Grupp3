@@ -2,17 +2,6 @@ export const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export const showWinner = (setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck) => {
-    let winner = getWinner(dealerCards, playerCards)
-    console.log(winner)
-    alert('The winner is: ' + winner)
-    document.querySelector('#dealerHand').innerHTML = '';
-    document.querySelector('#playerHand').innerHTML = '';
-    setPlayerCards([])
-    setDealerCards([])
-    setDeck()
-}
-
 export const getWinner = (dealerCards, playerCards) => {
     let dealerTotal = 0
     let playerTotal = 0

@@ -3,8 +3,9 @@ import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Token } from './components/Token'
-import { sleep, showWinner, getTotal } from './modules/card'
+import { sleep, getWinner, getTotal } from './modules/card'
 import { ButtonGroup } from './components/ButtonGroup.js'
+import { WinnerModal } from './components/WinnerModal';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [playerCards, setPlayerCards] = useState([])
   const [dealerCards, setDealerCards] = useState([])
   const [dealerTurn, setDealerTurn] = useState(false)
+  const [winner, setWinner] = useState('')
 
   const drawPlayerCard = async () => {
     await drawCard().then(async (res) => {
@@ -28,7 +30,16 @@ function App() {
       setDealerCards((dealerCards) => [...dealerCards, res.data.cards[0]])
     })
   }
-
+  const showWinner = (setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck) => {
+    let winner = getWinner(dealerCards, playerCards)
+    console.log(winner)
+    setWinner(winner)
+    document.querySelector('#dealerHand').innerHTML = '';
+    document.querySelector('#playerHand').innerHTML = '';
+    setPlayerCards([])
+    setDealerCards([])
+    setDeck()
+  }
   useEffect(() => {
     if (playerCards.length === 2 || dealerTurn) {
       drawDealerCard(setDealerCards)
@@ -82,6 +93,7 @@ function App() {
         <div id="playerHand"></div>
         <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
         <Token />
+        <WinnerModal winner={winner} />)
       </div>
     </div>
   );
