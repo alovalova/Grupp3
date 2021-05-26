@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
+import token from './../img/token.png';
+
 
 export const Token = () => {
     if (!localStorage.getItem('tokens'))
@@ -10,7 +12,7 @@ export const Token = () => {
     const ref = useRef();
     useEffect(() => {
         console.log(ref)
-        ref.current.innerText = localStorage.getItem('tokens') + " tokens"
+        ref.current.innerText = localStorage.getItem('tokens');
     }, [tokens])
 
     const addToken = () => {
@@ -21,7 +23,7 @@ export const Token = () => {
 
     return (
         <div className="token">
-            <h1 ref={ref}>{tokens} tokens</h1>
+            <h1 ref={ref}><img src={token} id="token"/></h1>
             <div className="buttonGroup">
                 <button id="tokenBtn" className="btn btn-lg" onClick={() => addToken()}>Add</button>
             </div>
