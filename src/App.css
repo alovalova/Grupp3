@@ -8,13 +8,15 @@ body {
 #backside {
   height: 10em;
   margin-top: 10em;
+  margin-right: 7em;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   height: fit-content;
-  width: fit-content;
+  width: 60em;
+  margin-left: 23em;
 }
 
 h3 {
@@ -24,8 +26,6 @@ h3 {
   background-clip: text;
   text-shadow: 0px 5px 2px #7943246e;
   font-size: 50px;
-  /*text-shadow: 1px 1px rgba(39, 22, 3, 0.959), -1px -1px rgba(12, 12, 12, 0.795);*/
-  /*text-shadow: inset 0 0 10px black;*/
   border-radius: 15px;
 }
 
@@ -35,7 +35,8 @@ h3 {
   flex-direction: row;
   justify-content: space-around;
   height: fit-content;
-  /*background-color: rgba(56, 28, 9, 0.808);*/
+  width: 30em;
+  margin: auto;
   background-image: url("./img/banner.jpg");
   box-shadow: 1px 4px 20px 10px black;
   border-radius: 10px;
@@ -53,6 +54,10 @@ h3 {
 
 button {
   height: fit-content;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .hands {
@@ -73,18 +78,11 @@ img {
 }
 
 #playerHand {
-  width: auto;
   height: 15em;
+  width: auto;
 }
 
 .card-API-img {
   width: auto;
   height: 10em;
 }
-/*#currCard {
-  margin: 5em 0em 5em 0em;
-  padding: 0.3em;
-  min-width: 226px;
-  min-height: 314px;
-  
-}*/
