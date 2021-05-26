@@ -42,7 +42,7 @@ h3 {
   border-radius: 10px;
 }
 
-#startBtn, #stopBtn, #drawBtn{
+#startBtn, #stopBtn, #drawBtn, #tokenBtn {
   font-size: 60px;
   background: -webkit-linear-gradient(rgb(255, 166, 0), rgb(161, 0, 0));
   background-clip: text;
