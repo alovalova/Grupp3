@@ -69,6 +69,7 @@ button:hover {
 #dealerHand {
   height: 10em;
   width: max-content;
+  align-items: center;
 }
 
 img {
@@ -80,9 +81,20 @@ img {
 #playerHand {
   height: 15em;
   width: auto;
+  align-items: center;
 }
 
 .card-API-img {
   width: auto;
   height: 10em;
+}
+
+#backside{
+  height: 40%;
+  width: 40%;
+  border-radius: none;
+  align-items: center;
+  box-shadow: none;
+  margin-top: 20px;
+  background-position: top center;
 }
