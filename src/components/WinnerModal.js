@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 export const WinnerModal = ({ winner }) => {
     const [show, setShow] = useState(false);
     useEffect(() => {
-        if (winner != '') setShow(true)
+        if (winner !== '') setShow(true)
         else setShow(false)
     }, [winner])
     return (

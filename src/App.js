@@ -95,7 +95,7 @@ function App() {
         <div id="playerHand"></div>
         <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
         <Token />
-        <WinnerModal winner={winner} />)
+        <WinnerModal winner={winner} />
       </div>
     </div>
   );
