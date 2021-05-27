@@ -89,12 +89,13 @@ function App() {
     <div className="container">
       <div className="hands">
         <img src={header} id='backside' />
+        <Token winner={winner}/>
         <h3>Dealer Hand</h3>
         <div id="dealerHand"></div>
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
         <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
-        <Token />
+        
         <WinnerModal winner={winner} />
       </div>
     </div>
