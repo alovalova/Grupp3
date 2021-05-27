@@ -3,29 +3,48 @@ import token from './../img/token.png';
 
 
 export const Token = () => {
-    if (!localStorage.getItem('tokens'))
-        localStorage.setItem('tokens', 10)
-    else if (localStorage.getItem('tokens') <= 0)
-        localStorage.setItem('tokens', 10)
+    
+    if (!localStorage.getItem('Tokens'))
+        localStorage.setItem('Tokens', 10)
+    else if (!localStorage.getItem('Pot'))
+        localStorage.setItem('Pot', 0)
+    else if (localStorage.getItem('Tokens') <= 0)
+        alert("You are out of tokens.");
 
-    const [tokens, setTokens] = useState(localStorage.getItem('tokens'))
-    const ref = useRef();
+    var [tokens, setTokens] = useState(localStorage.getItem('Tokens'))
+    var [potTokens, setPot] = useState(localStorage.getItem('Pot'))
+    const Tokenref = useRef();
+    const Potref = useRef();
+
     useEffect(() => {
-        console.log(ref)
-        ref.current.innerText = localStorage.getItem('tokens');
+        console.log(Tokenref)
+        Tokenref.current.innerText = localStorage.getItem('Tokens');
     }, [tokens])
+
+    useEffect(() => {
+        console.log(Potref)
+        Potref.current.innerText = localStorage.getItem('Pot');
+    }, [potTokens])
 
     const addToken = () => {
         setTokens(tokens - 1)
-        localStorage.setItem('tokens', tokens)
-        console.log(localStorage.getItem('tokens'))
+        localStorage.setItem('Tokens', tokens)
+    }
+
+    const addPot = () => {
+        setPot(potTokens ++)
+        localStorage.setItem('Pot', potTokens)
     }
 
     return (
         <div className="token">
-            <h1 ref={ref}><img src={token} id="token"/></h1>
+            <div className="tokenClass">
+                <h1 ref={Tokenref}></h1>
+                <h1 ref={Potref}></h1>
+                <img src={token} id="token"/>
+            </div>
             <div className="buttonGroup">
-                <button id="tokenBtn" className="btn btn-lg" onClick={() => addToken()}>Add</button>
+                <button id="tokenBtn" className="btn btn-lg" onClick={() => {addToken() ; addPot()}}>Bet</button>
             </div>
         </div>
     )
