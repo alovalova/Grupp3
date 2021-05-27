@@ -3,7 +3,6 @@ import token from './../img/token.png';
 
 
 export const Token = () => {
-    
     if (!localStorage.getItem('Tokens'))
         localStorage.setItem('Tokens', 10)
     else if (!localStorage.getItem('Pot'))
