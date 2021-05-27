@@ -10,29 +10,25 @@ export const Token = () => {
     else if (localStorage.getItem('Tokens') <= 0)
         alert("You are out of tokens.");
 
-    var [tokens, setTokens] = useState(localStorage.getItem('Tokens'))
-    var [potTokens, setPot] = useState(localStorage.getItem('Pot'))
+    const [tokens, setTokens] = useState(localStorage.getItem('Tokens'))
+    const [potTokens, setPot] = useState(localStorage.getItem('Pot'))
     const Tokenref = useRef();
     const Potref = useRef();
 
     useEffect(() => {
-        console.log(Tokenref)
         Tokenref.current.innerText = localStorage.getItem('Tokens');
+        localStorage.setItem('Tokens', tokens)
     }, [tokens])
 
     useEffect(() => {
-        console.log(Potref)
         Potref.current.innerText = localStorage.getItem('Pot');
+        localStorage.setItem('Pot', potTokens)
     }, [potTokens])
 
     const addToken = () => {
         setTokens(tokens - 1)
-        localStorage.setItem('Tokens', tokens)
-    }
-
-    const addPot = () => {
-        setPot(potTokens ++)
-        localStorage.setItem('Pot', potTokens)
+        setPot(+potTokens +1)
+        
     }
 
     return (
@@ -43,7 +39,7 @@ export const Token = () => {
                 <img src={token} id="token"/>
             </div>
             <div className="buttonGroup">
-                <button id="tokenBtn" className="btn btn-lg" onClick={() => {addToken() ; addPot()}}>Bet</button>
+                <button id="tokenBtn" className="btn btn-lg" onClick={() => addToken()}>Bet</button>
             </div>
         </div>
     )
