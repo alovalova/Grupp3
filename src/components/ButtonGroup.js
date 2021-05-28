@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const ButtonGroup = ({ deck, setDeck, drawPlayerCard, setDealerTurn }) => {
+export const ButtonGroup = ({ deck, setDeck, drawPlayerCard, setDealerTurn, WinnerPot }) => {
     const getDeck = async () => {
         await axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1').then((res) =>
             setDeck(res.data)
@@ -10,7 +10,7 @@ export const ButtonGroup = ({ deck, setDeck, drawPlayerCard, setDealerTurn }) =>
         <div>
             <div className="buttonGroup">
                 {deck === undefined ? (<button className="btn btn-lg" id="startBtn" onClick={() => getDeck()}>Start</button>) : (<><button className="btn btn-lg" id="drawBtn" onClick={() => drawPlayerCard()}>Draw card</button>
-                    <button className="btn btn-lg" id="stopBtn" onClick={() => setDealerTurn(true)}>Stop</button></>)}
+                    <button className="btn btn-lg" id="stopBtn" onClick={() => {setDealerTurn(true) ; WinnerPot()}}>Stop</button></>)}
             </div>
         </div>
     )
