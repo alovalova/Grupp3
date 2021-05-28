@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import token from './../img/token.png';
 
-
 export const Token = () => {
     if (!localStorage.getItem('Tokens'))
         localStorage.setItem('Tokens', 10)
@@ -17,19 +16,24 @@ export const Token = () => {
 
     useEffect(() => {
         Tokenref.current.innerText = localStorage.getItem('Tokens');
-        localStorage.setItem('Tokens', tokens)
-    }, [tokens])
-
-    useEffect(() => {
         Potref.current.innerText = localStorage.getItem('Pot');
-        localStorage.setItem('Pot', potTokens)
-    }, [potTokens])
+    }, [tokens, potTokens])
 
     const addToken = () => {
         setTokens(tokens - 1)
+        localStorage.setItem('Tokens', tokens)
+
         setPot(+potTokens +1)
-        
+        localStorage.setItem('Pot', potTokens)
     }
+
+    WinnerPot (() => {
+        if (winner === 'Player')
+            var income = localStorage.getItem('Pot')
+            var new_income = income.value * 2
+            console.log(new_income) 
+    })
+    
 
     return (
         <div className="token">
