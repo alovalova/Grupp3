@@ -10,7 +10,7 @@ export const ButtonGroup = ({ deck, setDeck, drawPlayerCard, setDealerTurn, Winn
         <div>
             <div className="buttonGroup">
                 {deck === undefined ? (<button className="btn btn-lg" id="startBtn" onClick={() => getDeck()}>Start</button>) : (<><button className="btn btn-lg" id="drawBtn" onClick={() => drawPlayerCard()}>Draw card</button>
-                    <button className="btn btn-lg" id="stopBtn" onClick={() => {setDealerTurn(true) ; WinnerPot()}}>Stop</button></>)}
+                    <button className="btn btn-lg" id="stopBtn" onClick={() => setDealerTurn(true)}>Stop</button></>)}
             </div>
         </div>
     )

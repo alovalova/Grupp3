@@ -93,8 +93,9 @@ img {
   height: 10em;
 }
 
+/* #backside = header image */
 #backside{
-  height: 30%;
+  height: 20%;
   width: 30%;
   border-radius: none;
   box-shadow: none;
@@ -103,21 +104,105 @@ img {
   margin: auto;
 }
 
+
+/* Everything regarding tokens below */
+
+/* .token = main div */
 .token{
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 20px;
+  height: 13%;
 }
 
+/* .tokenClass = content of main div*/
 .tokenClass{
   display: flex;
   flex-direction: row;
   margin-right: none;
+
+  /* Testade med kartbakgrund för läsbarhet 
+
+  background-image: url("./img/banner.jpg"); */
 }
+
+/* .tokenClass > #token = token image*/
 .tokenClass > #token{
   border-radius: none;
   box-shadow: none;
   height: 70%;
   width: 10%;
+}
+
+.tokenClass > p {
+  font-size: 30px;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  body {
+    background-image: url("./img/table.jpg");
+    background-repeat: repeat;
+  }
+  
+  .container {
+    margin-left: 0;
+  }
+
+  #dealerHand {
+    margin-left: 8em;
+  }
+
+  #playerHand {
+    margin-left: 8em;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  
+  body {
+    background-image: url("./img/table.jpg");
+    background-repeat: repeat;
+  }
+  
+  .container {
+    margin: 0;
+  }
+
+  #backside{
+    height: 25%;
+    width: 30%;
+  }
+
+  #dealerHand {
+    margin-left: 8em;
+  }
+
+  #playerHand {
+    margin-left: 8em;
+  }
+
+  .tokenClass > h1 {
+    color: white;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .container {
+    margin: auto;
+  }
+
+  #dealerHand {
+    margin-left: 0em;
+  }
+
+  #playerHand {
+    margin-left: 0em;
+  }
 }

@@ -26,23 +26,23 @@ export const Token = () => {
         setPot(+potTokens +1)
         localStorage.setItem('Pot', potTokens)
     }
-
+    /*
     WinnerPot (() => {
         if (winner === 'Player')
             var income = localStorage.getItem('Pot')
             var new_income = income.value * 2
             console.log(new_income) 
     })
-    
+    */
 
     return (
         <div className="token">
             <div className="tokenClass">
-                <h1 ref={Tokenref}></h1>
-                <h1 ref={Potref}></h1>
+                <p>The Pot: </p><h1 ref={Potref}></h1>
+                <p>Your Coins: </p><h1 ref={Tokenref}></h1>
                 <img src={token} id="token"/>
             </div>
-            <div className="buttonGroup">
+            <div className="buttonGroup" id="btnParent">
                 <button id="tokenBtn" className="btn btn-lg" onClick={() => addToken()}>Bet</button>
             </div>
         </div>
