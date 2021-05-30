@@ -27,7 +27,7 @@ h3 {
 h1 {
   padding: 0.3em;
   color: transparent;
-  background-color: #000000d2;
+  background-color: #f06e18d2;
   background-clip: text;
   text-shadow: 0px 5px 2px #7943246e;
   font-size: 50px;
@@ -45,6 +45,7 @@ h1 {
   background-image: url("./img/banner.jpg");
   box-shadow: 1px 4px 20px 10px black;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 #startBtn, #stopBtn, #drawBtn, #tokenBtn {
@@ -139,7 +140,6 @@ img {
   font-size: 30px;
 }
 
-
 /* Media Queries */
 @media screen and (max-width: 480px) {
   body {
@@ -158,6 +158,24 @@ img {
   #playerHand {
     margin-left: 8em;
   }
+
+  .tokenClass > h1 {
+    color: transparent;
+    background-color: #f06e18d2;
+    background-clip: text;
+    text-shadow: 0px 5px 2px #7943246e;
+    border-radius: 15px;
+  }
+
+  .tokenClass > p{
+    padding-bottom: 0.3em;
+    color: transparent;
+    background-color: #f5ceb4d2;
+    background-clip: text;
+    font-size: 50px;
+    text-shadow: 0px 5px 2px #30190c83;
+    border-radius: 15px;
+  }
 }
 
 @media screen and (min-width: 480px) {
@@ -172,7 +190,7 @@ img {
   }
 
   #backside{
-    height: 25%;
+    height: 30%;
     width: 30%;
   }
 
@@ -185,11 +203,21 @@ img {
   }
 
   .tokenClass > h1 {
-    color: white;
+    color: transparent;
+    background-color: #f06e18d2;
+    background-clip: text;
+    text-shadow: 0px 5px 2px #7943246e;
+    border-radius: 15px;
   }
 
-  p {
-    color: white;
+  .tokenClass > p {
+    padding-bottom: 0.3em;
+    color: transparent;
+    background-color: #f5ceb4d2;
+    background-clip: text;
+    font-size: 50px;
+    text-shadow: 0px 5px 2px #30190c83;
+    border-radius: 15px;
   }
 }
 
@@ -204,5 +232,23 @@ img {
 
   #playerHand {
     margin-left: 0em;
+  }
+
+  .tokenClass > h1 {
+    color: transparent;
+    background-color: #f06e18d2;
+    background-clip: text;
+    text-shadow: 0px 5px 2px #7943246e;
+    border-radius: 15px;
+  }
+
+  .tokenClass > p {
+    padding-bottom: 0.3em;
+    color: transparent;
+    background-color: #f5ceb4d2;
+    background-clip: text;
+    font-size: 50px;
+    text-shadow: 0px 5px 2px #30190c83;
+    border-radius: 15px;
   }
 }
