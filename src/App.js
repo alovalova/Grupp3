@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Token } from './components/Token'
-import { sleep, getWinner, getTotal } from './modules/card'
+import { sleep, getTotal, getRealValue } from './modules/card'
 import { ButtonGroup } from './components/ButtonGroup.js'
 import { WinnerModal } from './components/WinnerModal';
 import header from './img/header.png';
@@ -13,8 +13,28 @@ function App() {
   const [deck, setDeck] = useState()
   const [playerCards, setPlayerCards] = useState([])
   const [dealerCards, setDealerCards] = useState([])
+  const [totalCards, setTotalCards] = useState()
   const [dealerTurn, setDealerTurn] = useState(false)
   const [winner, setWinner] = useState('')
+
+  const getWinner = (dealerCards, playerCards) => {
+    let dealerTotal = 0
+    let playerTotal = 0
+    let winner
+    for (let i = 0; i < dealerCards.length; i++) {
+        dealerTotal += +getRealValue(dealerCards[i].value)
+    }
+    for (let i = 0; i < playerCards.length; i++) {
+        playerTotal += +getRealValue(playerCards[i].value)
+    }
+    if ((playerTotal > 21 && dealerTotal > 21) || playerTotal === dealerTotal) winner = 'Draw'
+    else if ((playerTotal < 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'Player'
+    else winner = 'Dealer'
+
+    console.log('dealer ', dealerTotal, 'player ', playerTotal);
+    setTotalCards({playerTotal: playerTotal, dealerTotal: dealerTotal})
+    return winner
+}
 
   const drawPlayerCard = async () => {
     await drawCard().then(async (res) => {
@@ -96,7 +116,7 @@ function App() {
         <div id="playerHand"></div>
         <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
         
-        <WinnerModal winner={winner} />
+        <WinnerModal winner={winner} setWinner = {setWinner} totalCards = {totalCards} />
       </div>
     </div>
   );
