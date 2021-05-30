@@ -13,7 +13,7 @@ function App() {
   const [deck, setDeck] = useState()
   const [playerCards, setPlayerCards] = useState([])
   const [dealerCards, setDealerCards] = useState([])
-  const [totalCards, setTotalCards] = useState()
+  const [totalCards, setTotalCards] = useState("")
   const [dealerTurn, setDealerTurn] = useState(false)
   const [winner, setWinner] = useState('')
 
@@ -28,7 +28,7 @@ function App() {
         playerTotal += +getRealValue(playerCards[i].value)
     }
     if ((playerTotal > 21 && dealerTotal > 21) || playerTotal === dealerTotal) winner = 'Draw'
-    else if ((playerTotal < 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'Player'
+    else if ((playerTotal < 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'You'
     else winner = 'Dealer'
 
     console.log('dealer ', dealerTotal, 'player ', playerTotal);
@@ -108,7 +108,7 @@ function App() {
   return (
     <div className="container">
       <div className="hands">
-        <img src={header} id='backside' />
+        <img src={header} id='backside' alt="header"/>
         <Token winner={winner}/>
         <h3>Dealer Hand</h3>
         <div id="dealerHand"></div>
