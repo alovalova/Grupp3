@@ -3,7 +3,6 @@ import token from './../img/token.png';
 import { sleep } from './../modules/card';
 
 export const Token = ({ winner }) => {
-
     const [tokens, setTokens] = useState(localStorage.getItem('Tokens'))
     const [potTokens, setPot] = useState(localStorage.getItem('Pot'))
     const Tokenref = useRef();
@@ -31,7 +30,7 @@ export const Token = ({ winner }) => {
     useEffect(() => {
         var income = parseInt(localStorage.getItem('Pot'))
 
-        if (winner === 'Player'){
+        if (winner === 'You'){
             localStorage.setItem('Pot', 0)
             var old_income = parseInt(localStorage.getItem('Tokens'))
             var new_income = income * 2
@@ -67,8 +66,8 @@ export const Token = ({ winner }) => {
         <div className="token">
             <div className="tokenClass">
                 <p>The Pot: </p><h1 ref={Potref}></h1>
-                <p>Your Coins: </p><h1 ref={Tokenref}></h1>
-                <img src={token} id="token"/>
+                <p>Your tokens: </p><h1 ref={Tokenref}></h1>
+                <img src={token} id="token" alt="token"/>
             </div>
             <div className="buttonGroup" id="btnParent">
                 <button id="tokenBtn" className="btn btn-lg" onClick={() => addToken()}>Bet</button>
