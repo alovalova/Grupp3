@@ -27,7 +27,7 @@ function App() {
       playerTotal += +getRealValue(playerCards[i].value)
     }
     if ((playerTotal > 21 && dealerTotal > 21) || playerTotal === dealerTotal) winner = 'Draw'
-    else if ((playerTotal < 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'You'
+    else if ((playerTotal <= 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'You'
     else winner = 'Dealer'
     setTotalCards({ playerTotal: playerTotal, dealerTotal: dealerTotal })
     return winner
