@@ -21,16 +21,16 @@ export const Token = ({ winner }) => {
     }, [tokens, potTokens])
 
     const addToken = () => {
-        if (tokens > 0){
+        if (tokens > 0) {
             setTokens(tokens - 1)
-            setPot(+potTokens +1)
+            setPot(+potTokens + 1)
         }
     }
 
     useEffect(() => {
         var income = parseInt(localStorage.getItem('Pot'))
 
-        if (winner === 'You'){
+        if (winner === 'You') {
             localStorage.setItem('Pot', 0)
             var old_income = parseInt(localStorage.getItem('Tokens'))
             var new_income = income * 2
@@ -38,11 +38,11 @@ export const Token = ({ winner }) => {
             localStorage.setItem('Tokens', total_income)
             Tokenref.current.innerText = total_income;
             setTokens(total_income)
-            
-        } else if (winner === 'Dealer'){
+
+        } else if (winner === 'Dealer') {
             Potref.current.innerText = 0;
-            
-        } else if (winner === 'Draw'){
+
+        } else if (winner === 'Draw') {
             var old_income = parseInt(localStorage.getItem('Tokens'))
             var draw_income = old_income + income
             localStorage.setItem('Tokens', draw_income);
@@ -51,13 +51,14 @@ export const Token = ({ winner }) => {
         }
         localStorage.setItem('Pot', 0)
         setPot(0)
-        if (localStorage.getItem('Tokens') <= 0 && localStorage.getItem('Pot') <= 0){
+        if (localStorage.getItem('Tokens') <= 0 && localStorage.getItem('Pot') <= 0) {
             const tokensReset = async () => {
                 await sleep(1500)
                 alert("You are out of tokens. Walk the plank. \n \n \nJust kidding, here, we give you 10 more.");
                 localStorage.setItem('Tokens', 10)
+                setTokens(10)
                 Tokenref.current.innerText = 10;
-            } 
+            }
             tokensReset()
         }
     }, [winner])
@@ -67,7 +68,7 @@ export const Token = ({ winner }) => {
             <div className="tokenClass">
                 <p>The Pot: </p><h1 ref={Potref}></h1>
                 <p>Your tokens: </p><h1 ref={Tokenref}></h1>
-                <img src={token} id="token" alt="token"/>
+                <img src={token} id="token" alt="token" />
             </div>
             <div className="buttonGroup" id="btnParent">
                 <button id="tokenBtn" className="btn btn-lg" onClick={() => addToken()}>Bet</button>

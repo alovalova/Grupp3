@@ -8,7 +8,6 @@ import { ButtonGroup } from './components/ButtonGroup.js'
 import { WinnerModal } from './components/WinnerModal';
 import header from './img/header.png';
 
-
 function App() {
   const [deck, setDeck] = useState()
   const [playerCards, setPlayerCards] = useState([])
@@ -22,23 +21,23 @@ function App() {
     let playerTotal = 0
     let winner
     for (let i = 0; i < dealerCards.length; i++) {
-        dealerTotal += +getRealValue(dealerCards[i].value)
+      dealerTotal += +getRealValue(dealerCards[i].value)
     }
     for (let i = 0; i < playerCards.length; i++) {
-        playerTotal += +getRealValue(playerCards[i].value)
+      playerTotal += +getRealValue(playerCards[i].value)
     }
     if ((playerTotal > 21 && dealerTotal > 21) || playerTotal === dealerTotal) winner = 'Draw'
     else if ((playerTotal < 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'You'
     else winner = 'Dealer'
-
-    console.log('dealer ', dealerTotal, 'player ', playerTotal);
-    setTotalCards({playerTotal: playerTotal, dealerTotal: dealerTotal})
+    setTotalCards({ playerTotal: playerTotal, dealerTotal: dealerTotal })
     return winner
-}
+  }
 
   const drawPlayerCard = async () => {
     await drawCard().then(async (res) => {
       setPlayerCards((playerCards) => [...playerCards, res.data.cards[0]])
+    }, (res) => {
+      if (res.status === 500) drawPlayerCard()
     })
   }
 
@@ -49,11 +48,12 @@ function App() {
   const drawDealerCard = async () => {
     await drawCard().then(res => {
       setDealerCards((dealerCards) => [...dealerCards, res.data.cards[0]])
+    }, (res) => {
+      if (res.status === 500) drawDealerCard()
     })
   }
   const showWinner = (setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck) => {
     let winner = getWinner(dealerCards, playerCards)
-    console.log(winner)
     setWinner(winner)
     document.querySelector('#dealerHand').innerHTML = '';
     document.querySelector('#playerHand').innerHTML = '';
@@ -81,7 +81,6 @@ function App() {
     if (playerCards.length > 0) {
       showCards()
     }
-
   }, [playerCards])
 
   useEffect(() => {
@@ -108,15 +107,15 @@ function App() {
   return (
     <div className="container">
       <div className="hands">
-        <img src={header} id='backside' alt="header"/>
-        <Token winner={winner}/>
+        <img src={header} id='backside' alt="header" />
+        <Token winner={winner} />
         <h3>Dealer Hand</h3>
         <div id="dealerHand"></div>
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
         <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
-        
-        <WinnerModal winner={winner} setWinner = {setWinner} totalCards = {totalCards} />
+
+        <WinnerModal winner={winner} setWinner={setWinner} totalCards={totalCards} />
       </div>
     </div>
   );
