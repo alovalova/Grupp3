@@ -23,7 +23,7 @@ export const WinnerModal = ({ winner, setWinner, totalCards}) => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title className='justify-content-center'>
-                    {totalCards !== "" ? (<div><h4>The winner is:</h4> <h2>{winner}</h2><h5>Your total: {totalCards.playerTotal}</h5><h5>Dealers total: {totalCards.dealerTotal}</h5></div>) : ("")} 
+                    {totalCards !== "" ? (<div><h4>The winner is:</h4> <h2>{winner}</h2><h5>Your total: {totalCards.playerTotal}</h5><h5>Dealer total: {totalCards.dealerTotal}</h5></div>) : ("")} 
                     </Modal.Title>
                 </Modal.Header>
             </Modal>
