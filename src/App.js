@@ -14,18 +14,15 @@ function App() {
   const [dealerCards, setDealerCards] = useState([])
   const [totalCards, setTotalCards] = useState("")
   const [dealerTurn, setDealerTurn] = useState(false)
+  const [playerTurn, setPlayerTurn] = useState(true)
   const [winner, setWinner] = useState('')
 
   const getWinner = (dealerCards, playerCards) => {
     let dealerTotal = 0
     let playerTotal = 0
     let winner
-    for (let i = 0; i < dealerCards.length; i++) {
-      dealerTotal += +getRealValue(dealerCards[i].value)
-    }
-    for (let i = 0; i < playerCards.length; i++) {
-      playerTotal += +getRealValue(playerCards[i].value)
-    }
+    dealerCards.map(card => { dealerTotal += +getRealValue(card.value) })
+    playerCards.map(card => { playerTotal += +getRealValue(card.value) })
     if ((playerTotal > 21 && dealerTotal > 21) || playerTotal === dealerTotal) winner = 'Draw'
     else if ((playerTotal <= 21 && (playerTotal > dealerTotal)) || dealerTotal > 21) winner = 'You'
     else winner = 'Dealer'
@@ -35,34 +32,45 @@ function App() {
 
   const drawPlayerCard = async () => {
     await drawCard().then(async (res) => {
-      setPlayerCards((playerCards) => [...playerCards, res.data.cards[0]])
-    }, (res) => {
-      if (res.status === 500) drawPlayerCard()
+      if (res != undefined)
+        setPlayerCards((playerCards) => [...playerCards, res.data.cards[0]])
     })
   }
 
   const drawCard = async () => {
     return await axios.get(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`)
-
+      .catch(error => {
+        console.log(error)
+        if (error.response.status === 500) {
+          alert("Something went wrong. It's not your fault, its ours.")
+          clear()
+        }
+      })
   }
   const drawDealerCard = async () => {
     await drawCard().then(res => {
-      setDealerCards((dealerCards) => [...dealerCards, res.data.cards[0]])
-    }, (res) => {
-      if (res.status === 500) drawDealerCard()
+      if (res != undefined)
+        setDealerCards((dealerCards) => [...dealerCards, res.data.cards[0]])
     })
   }
-  const showWinner = (setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck) => {
+  const showWinner = async (setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck) => {
     let winner = getWinner(dealerCards, playerCards)
+    await sleep(1000)
     setWinner(winner)
+    clear()
+  }
+
+  const clear = () => {
     document.querySelector('#dealerHand').innerHTML = '';
     document.querySelector('#playerHand').innerHTML = '';
     setPlayerCards([])
     setDealerCards([])
+    setPlayerTurn(true)
+    setDealerTurn(false)
     setDeck()
   }
   useEffect(() => {
-    if (playerCards.length === 2 || dealerTurn) {
+    if (playerCards.length === 2 && playerTurn || dealerTurn) {
       drawDealerCard(setDealerCards)
     }
   }, [playerCards, dealerTurn])
@@ -89,10 +97,12 @@ function App() {
       img.src = dealerCards[dealerCards.length - 1].image
       img.className = 'card-API-img'
       document.querySelector('#dealerHand').appendChild(img);
-      await sleep(1000)
+      await sleep(2000)
       if (dealerTurn) {
         let total = 0
-        if (getTotal(total, dealerCards) <= 16) drawDealerCard()
+        if (getTotal(total, dealerCards) < 16) {
+          drawDealerCard()
+        }
         else {
           setDealerTurn(false)
           showWinner(setPlayerCards, setDealerCards, dealerCards, playerCards, setDeck)
@@ -113,7 +123,7 @@ function App() {
         <div id="dealerHand"></div>
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
-        <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} />
+        <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} setPlayerTurn={setPlayerTurn} />
 
         <WinnerModal winner={winner} setWinner={setWinner} totalCards={totalCards} />
       </div>
