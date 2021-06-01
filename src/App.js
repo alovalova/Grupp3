@@ -123,7 +123,7 @@ function App() {
         <div id="dealerHand"></div>
         <h3>Player Hand</h3>
         <div id="playerHand"></div>
-        <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} setPlayerTurn={setPlayerTurn} />
+        <ButtonGroup deck={deck} setDeck={setDeck} drawPlayerCard={drawPlayerCard} setDealerTurn={setDealerTurn} setPlayerTurn={setPlayerTurn} playerTurn={playerTurn} />
 
         <WinnerModal winner={winner} setWinner={setWinner} totalCards={totalCards} />
       </div>
