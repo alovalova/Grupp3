@@ -53,8 +53,8 @@ export const Token = ({ winner }) => {
         setPot(0)
         if (localStorage.getItem('Tokens') <= 0 && localStorage.getItem('Pot') <= 0) {
             const tokensReset = async () => {
-                await sleep(1500)
-                alert("You are out of tokens. Walk the plank. \n \n \nJust kidding, here, we give you 10 more.");
+                await sleep(3500)
+                alert("Arrr! You are out of tokens. Walk the plank, pirate. \n \n \nJust kidding, here, we give you 10 more.");
                 localStorage.setItem('Tokens', 10)
                 setTokens(10)
                 Tokenref.current.innerText = 10;
