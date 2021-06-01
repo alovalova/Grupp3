@@ -32,6 +32,8 @@ h1 {
   text-shadow: 0px 5px 2px #7943246e;
   font-size: 50px;
   border-radius: 15px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .buttonGroup {
@@ -138,6 +140,8 @@ img {
 
 .tokenClass > p {
   font-size: 30px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 /* Media Queries */
