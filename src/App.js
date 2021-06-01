@@ -42,7 +42,7 @@ function App() {
       .catch(error => {
         console.log(error)
         if (error.response.status === 500) {
-          alert("Something went wrong. It's not your fault, its ours.")
+          alert("Ahoy! Something went wrong. Oh fear not, the fault lies at us. ")
           clear()
         }
       })
