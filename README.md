@@ -7,7 +7,7 @@ Det här projektet är skapat av:
 Kortens valör adderas och spelaren vinner när denne uppnått 21 eller om dealern blir "tjock", dvs en summa som är större än 21.</p>
 
 <h2>Tokens</h2>
-<p/>Vi har även inkluderat "tokens" som spelaren kan satsa, vinna och förlora. Detta för att öka spänningen.
+<p>Vi har även inkluderat "tokens" som spelaren kan satsa, vinna och förlora. Detta för att öka spänningen.
 Dessa sparas i LocalStorage och uppdateras under spelets gång, beroende på spelets resultat.
 Vinner spelaren får denne tillbaka poten gånger två, blir det lika får spelaren tillbaka insatsen och förlorar spelaren får dealern poten, dvs den töms.</p>
 
@@ -16,5 +16,5 @@ Vinner spelaren får denne tillbaka poten gånger två, blir det lika får spela
 React är ett av de mest populära frontendramverken tack vare dess enkelhet och flexibilitet. Det finns också mycket dokumentation och exempellösningar att finna på internet.</p>
 
 <p>Anledningen till att vi inte valde t.ex Vue är för att det är ett litet och nytt ramverk och pga detta hade vi inte hittat lika mycket dokumentation på nätet.
-Angular ligger på många topplistor högst upp och är alltså hos vissa mer populärt än React. Anledningen till detta är bland annat för att användaren får stor kontroll över kombinationen mellan JS, HTML & CSS. Det finns stora likheter mellan Angular och React och svårighetsgraden är nästan likvärdig, så det finns ingen signifikant anledning till att vi inte valde Angular, men erfarenheten inom react är större. </p>
+Angular ligger på många topplistor högst upp och är alltså hos vissa mer populärt än React. Anledningen till detta är bland annat för att användaren får stor kontroll över kombinationen mellan JS, HTML & CSS. Det finns stora likheter mellan Angular och React och svårighetsgraden är nästan likvärdig, så det finns ingen signifikant anledning till att vi inte valde Angular, men erfarenheten inom react är större.</p>
  
