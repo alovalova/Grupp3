@@ -100,7 +100,7 @@ function App() {
       await sleep(2000)
       if (dealerTurn) {
         let total = 0
-        if (getTotal(total, dealerCards) < 16) {
+        if (getTotal(total, dealerCards) <= 16) {
           drawDealerCard()
         }
         else {
