@@ -55,7 +55,7 @@ h1 {
 }
 
 /* Styling for the buttons */
-#startBtn, #stopBtn, #drawBtn, #tokenBtn {
+#startBtn, #stopBtn, #drawBtn, #tokenBtn, #awaitBtn {
   font-size: 50px;
   background: -webkit-linear-gradient(rgb(255, 166, 0), rgb(161, 0, 0));
   background-clip: text;
