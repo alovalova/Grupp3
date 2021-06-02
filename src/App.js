@@ -79,7 +79,7 @@ function App() {
   }
 
   /*
-    three different useEffects
+    Three different useEffects
     1. Dealer should get one card when user has pressed button "Draw card" and gets two
     2. Shows player cards once playerCards-state has been updated
     3. Shows dealer cards once delaerCards-state has been updated and sets winner once dealer hits 17 or higher
