@@ -1,7 +1,11 @@
+// Module to keep App.js cleaner
+
+// Sleep function to get the flow of the game more natural
 export const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Gets the total of dealer cards
 export const getTotal = (total, dealerCards) => {
     for (let i = 0; i < dealerCards.length; i++) {
         total += parseInt(getRealValue(dealerCards[i].value))
@@ -9,6 +13,7 @@ export const getTotal = (total, dealerCards) => {
     return total
 }
 
+// Return the "real" value of the cards. Ace is always 11
 export const getRealValue = (value) => {
     switch (value) {
         case 'JACK': return 10
