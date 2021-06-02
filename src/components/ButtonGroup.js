@@ -1,11 +1,13 @@
 import axios from 'axios'
 
 export const ButtonGroup = ({ deck, setDeck, drawPlayerCard, setDealerTurn, setPlayerTurn, playerTurn }) => {
+    //Calling API and then setting deck
     const getDeck = async () => {
         await axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1').then((res) =>
             setDeck(res.data)
         )
     }
+    //If the deck of cards in undefined, show Startbutton, else show Draw Card-button and Stop-button and then awaiting dealers cards
     return (
         <div>
             <div className="buttonGroup">
