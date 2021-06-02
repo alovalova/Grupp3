@@ -40,28 +40,30 @@ export const Token = ({ winner }) => {
 
         //If the player wins, they get the pot times two.
         if (winner === 'You') {
-            localStorage.setItem('Pot', 0)
             var old_income = parseInt(localStorage.getItem('Tokens'))
             var new_income = income * 2
             var total_income = new_income + old_income
             localStorage.setItem('Tokens', total_income)
             Tokenref.current.innerText = total_income;
             setTokens(total_income)
-        //If the dealer wins, the pot "disappears"
+            localStorage.setItem('Pot', 0)
+            setPot(0)
+            //If the dealer wins, the pot "disappears"
         } else if (winner === 'Dealer') {
             Potref.current.innerText = 0;
+            localStorage.setItem('Pot', 0)
+            setPot(0)
 
-        //If it is a draw, the amount in the pot goes back to the player.
+            //If it is a draw, the amount in the pot goes back to the player.
         } else if (winner === 'Draw') {
             var old_income = parseInt(localStorage.getItem('Tokens'))
             var draw_income = old_income + income
             localStorage.setItem('Tokens', draw_income);
             Tokenref.current.innerText = draw_income;
             setTokens(draw_income)
+            localStorage.setItem('Pot', 0)
+            setPot(0)
         }
-        //Set the pot to 0 after the game ends.
-        localStorage.setItem('Pot', 0)
-        setPot(0)
 
         //If tokens and pot is empty, give the player an alert and refill tokens with 10.
         if (localStorage.getItem('Tokens') <= 0 && localStorage.getItem('Pot') <= 0) {
