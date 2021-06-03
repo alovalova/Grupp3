@@ -1,3 +1,4 @@
+/* The background and parent of other DOM elements */
 body {
   background-image: url("./img/table.jpg");
   background-repeat:no-repeat;
@@ -5,6 +6,7 @@ body {
   font-family: 'Pirata One', cursive;
 }
 
+/* The main game field */
 .container {
   display: flex;
   flex-direction: row;
@@ -37,6 +39,7 @@ h1 {
   -webkit-text-stroke-color: black;
 }
 
+/* Parent for the start, draw card, stop and bet buttons */
 .buttonGroup {
   padding: 0.5em;
   display: flex;
@@ -51,6 +54,7 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* Styling for the buttons */
 #startBtn, #stopBtn, #drawBtn, #tokenBtn, #awaitBtn {
   font-size: 50px;
   background: -webkit-linear-gradient(rgb(255, 166, 0), rgb(161, 0, 0));
@@ -68,22 +72,18 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* Structure for the game field */
 .hands {
   display: flex;
   flex-direction: column;
   width: inherit;
 }
 
+/* Both #dealerHand and #playerHand are used for styling the area where cards appear */
 #dealerHand {
   height: 10em;
   width: max-content;
   align-items: center;
-}
-
-img {
-  border-radius: 12px;
-  box-shadow: 3px 5px 10px 0px black;
-  margin-left: 15px;
 }
 
 #playerHand {
@@ -92,6 +92,14 @@ img {
   align-items: center;
 }
 
+/* Styling for all cards */
+img {
+  border-radius: 12px;
+  box-shadow: 3px 5px 10px 0px black;
+  margin-left: 15px;
+}
+
+/* Image for the cards from the deck */
 .card-API-img {
   width: auto;
   height: 10em;
@@ -125,13 +133,9 @@ img {
   display: flex;
   flex-direction: row;
   margin-right: none;
-
-  /* Testade med kartbakgrund för läsbarhet 
-
-  background-image: url("./img/banner.jpg"); */
 }
 
-/* .tokenClass > #token = token image*/
+/* .tokenClass > #token = refers to the token image*/
 .tokenClass > #token{
   border-radius: none;
   box-shadow: none;
@@ -139,6 +143,7 @@ img {
   width: 10%;
 }
 
+/* p refers to "The Pot" and "Your tokens" texts */
 .tokenClass > p {
   font-size: 30px;
   -webkit-text-stroke-width: 1px;
@@ -146,6 +151,8 @@ img {
 }
 
 /* Media Queries */
+
+/* max-width handles everything below 480px, otherwise min-width is used */
 @media screen and (max-width: 480px) {
   body {
     background-image: url("./img/table.jpg");
