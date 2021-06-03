@@ -66,7 +66,7 @@ export const Token = ({ winner }) => {
         }
 
         //If tokens and pot is empty, give the player an alert and refill tokens with 10.
-        if (localStorage.getItem('Tokens') <= 0 && localStorage.getItem('Pot') <= 0) {
+        if (localStorage.getItem('Tokens') <= 0 && localStorage.getItem('Pot') <= 0 && winner) {
             const tokensReset = async () => {
                 //A sleep for the alert, so that the modal after the game is readable
                 await sleep(3500)
