@@ -171,22 +171,41 @@ img {
     margin-left: 8em;
   }
 
+  .token{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+
   .tokenClass > h1 {
+    display: flex;
+    flex-direction: column;
     color: transparent;
-    background-color: #f06e18d2;
+    background-color: #f78c46d2;
     background-clip: text;
     text-shadow: 0px 5px 2px #7943246e;
     border-radius: 15px;
+    text-align: center;
+    align-items: center;
   }
 
   .tokenClass > p{
+    display: flex;
+    flex-direction: column;
     padding-bottom: 0.3em;
     color: transparent;
-    background-color: #f5ceb4d2;
+    background-color: #faf7f5d2;
     background-clip: text;
     font-size: 50px;
     text-shadow: 0px 5px 2px #30190c83;
     border-radius: 15px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .tokenClass{
+    align-items: center;
+    margin-left: 150px;
   }
 }
 
@@ -225,7 +244,7 @@ img {
   .tokenClass > p {
     padding-bottom: 0.3em;
     color: transparent;
-    background-color: #f5ceb4d2;
+    background-color: #faf7f5d2;
     background-clip: text;
     font-size: 50px;
     text-shadow: 0px 5px 2px #30190c83;
@@ -257,7 +276,7 @@ img {
   .tokenClass > p {
     padding-bottom: 0.3em;
     color: transparent;
-    background-color: #f5ceb4d2;
+    background-color: #faf7f5d2;
     background-clip: text;
     font-size: 50px;
     text-shadow: 0px 5px 2px #30190c83;
